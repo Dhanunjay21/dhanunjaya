@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AWS Data</title>
+    <style>
+      /* Reset default margin and padding */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Style the whole page */
+      body {
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+
+      /* Style the table */
+      .userdata {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Style table header */
+      .userdata th {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px;
+        text-align: left;
+      }
+
+      /* Style table cells */
+      .userdata td {
+        border-bottom: 1px solid #dddddd;
+        padding: 8px;
+      }
+
+      /* Alternate row colors */
+      .userdata tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      /* Hover effect on rows */
+      .userdata tbody tr:hover {
+        background-color: #e5e5e5;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>AWS Data</h2>
+    <table id="userdata" class="userdata">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Account Number</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <script>
+      const userData = [
+        { name: "ATDC-Dhanunjaya", accountNumber: "707820260031", password: "-" },
+        { name: "XcelAudit-dhanunjaya", accountNumber: "157247043770", password: "-" },
+        { name: "vozcare-dhanunjaya", accountNumber: "752296661006", password: "-" },
+        { name: "CLMS-dhanunjay", accountNumber: "547230306406", password: "-" },
+        { name: "bugtrkr-dhanunjaya", accountNumber: "m80poc", password: "-" },
+      ];
+
+      function populateTable() {
+        const tableBody = document.getElementById("tableBody");
+        userData.forEach((user) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+          <td>${user.name}</td>
+          <td>${user.accountNumber}</td>
+          <td>${user.password}</td>
+        `;
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Call the function to populate the table
+      populateTable();
+    </script>
+  </body>
+</html>
